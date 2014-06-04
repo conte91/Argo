@@ -9,16 +9,18 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include "JsonServer.h"
+#include "Timer.h"
 
 class ValueUpdater{
   public:
     ValueUpdater(const std::string& id);
+    virtual ~ValueUpdater();
 
     void spin();
     void startUpdate();
     void stopUpdate();
 
-  private:
+  protected:
 
     typedef boost::property_tree::ptree ptree;
 
@@ -26,24 +28,12 @@ class ValueUpdater{
 
     std::string myID;
 
-    JsonServer jServer;
+    JsonServer _jServer;
+    Timer _tUpdater;
 
-    /** Cycles, signaling condition every time frame */
-    void timeFrame();
-
-    /** Listens to condition variable */
-    void updateFunc();
     void do_something();
 
     void sendBackData(const ptree& x);
     const ptree errorNotFound(const ptree& x);
-
-    /** These fields are necessary for the update condition to be created */
-    boost::mutex _updateMutex;
-    boost::unique_lock<boost::mutex> _updateLock;
-    boost::condition_variable _updateCond;
-    
-    boost::thread _timeFrameThread,  _updateThread;
-
 };
 

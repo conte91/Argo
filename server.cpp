@@ -1,8 +1,10 @@
 #include <string>
 #include "ValueUpdater.h"
+#include "OnRequest.h"
 
 int main(){
-  ValueUpdater up("test");
-  up.spin();
+  ValueUpdater* up;
+  up=new OnRequest("test");
+  up->spin();
   return 0;
 }

@@ -10,13 +10,16 @@
 #include <boost/property_tree/ptree.hpp>
 
 class JsonServer{
-  private:
+  public:
     typedef boost::property_tree::ptree ptree;
+
+  private:
     typedef boost::asio::buffers_iterator<boost::asio::streambuf::const_buffers_type> BufIterator;
     typedef boost::function<const ptree (const ptree&)> DataHandler;
     typedef boost::function<void (const ptree&)> Hook;
 
   public:
+
 
     JsonServer(const std::string& id);
 

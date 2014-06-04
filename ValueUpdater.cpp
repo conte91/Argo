@@ -21,29 +21,16 @@ ValueUpdater::ValueUpdater(const std::string& value)
   :
     /** Note: from C++ standard, class members are initialized in the order in which they are declared *into* the class declaration
     */
-    _updateMutex(),
-    _updateLock(_updateMutex),
-    _updateCond(),
-
-    _timeFrameThread(boost::bind(&ValueUpdater::timeFrame, this)),
-    _updateThread(boost::bind(&ValueUpdater::updateFunc, this)),
-    jServer(value)
+    _tUpdater(boost::posix_time::seconds(3)),
+    _jServer(value)
 {
   myID=value;
-  jServer.setDefaultHandler(boost::bind(&ValueUpdater::errorNotFound, this, _1));
-  jServer.setPostHook(boost::bind(&ValueUpdater::sendBackData, this, _1));
-}
+  _jServer.setDefaultHandler(boost::bind(&ValueUpdater::errorNotFound, this, _1));
 
-void ValueUpdater::updateFunc(){
+  _jServer.setPostHook(boost::bind(&ValueUpdater::sendBackData, this, _1));
 
-  std::cout << "Detached new updater thread" << std::endl;
-
-  while(1)
-  {
-    /** Waits for an event */
-    _updateCond.wait(_updateLock);
-    do_something();
-  }
+  /** List of things to be done */
+  _tUpdater.toDo().push(boost::bind(&ValueUpdater::do_something, this));
 
 }
 
@@ -51,28 +38,14 @@ void ValueUpdater::do_something(){
   std::cout << "Hey i'm doing something" << std::endl;
 }
 
-void ValueUpdater::timeFrame(){
-  boost::asio::io_service ioservice;
-  boost::asio::deadline_timer t(ioservice, boost::posix_time::seconds(3));
-
-  while(1)
-  {
-    t.wait();
-    t.expires_at(t.expires_at()+boost::posix_time::seconds(3));
-    std::cout << "Signaling time frame" << std::endl;
-    _updateCond.notify_one();
-  }
-}
-
 
 void ValueUpdater::spin(){
-  _timeFrameThread.join();
-  jServer.spin();
-  _updateThread.join();
+  _jServer.spin();
+  _tUpdater.spin();
 }
 
 void ValueUpdater::sendBackData(const ValueUpdater::ptree& x){
-  jServer.sendTree(x);
+  _jServer.sendTree(x);
 }
 
 const ValueUpdater::ptree ValueUpdater::errorNotFound(const ValueUpdater::ptree& x){
@@ -82,3 +55,6 @@ const ValueUpdater::ptree ValueUpdater::errorNotFound(const ValueUpdater::ptree&
 
   return t;
 }
+
+
+ValueUpdater::~ValueUpdater(){}
