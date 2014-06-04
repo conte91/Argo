@@ -8,6 +8,7 @@
 #include <boost/thread/condition_variable.hpp>
 
 #include <boost/property_tree/ptree.hpp>
+#include "JsonServer.h"
 
 class ValueUpdater{
   public:
@@ -19,41 +20,30 @@ class ValueUpdater{
 
   private:
 
+    typedef boost::property_tree::ptree ptree;
+
     ValueUpdater();
 
     std::string myID;
 
-    boost::property_tree::ptree requests, answers;
-
-    /** This will store association between requests and actions */
-    std::map<std::string, boost::function<const boost::property_tree::ptree (std::string)> > handlers;
-
-    typedef boost::asio::buffers_iterator<boost::asio::streambuf::const_buffers_type> BufIterator;
-    /** Used to check for a complete JSON message */
-    std::pair<BufIterator, bool> jsonReceived(BufIterator begin, BufIterator end);
+    JsonServer jServer;
 
     /** Cycles, signaling condition every time frame */
     void timeFrame();
-
-    /** Simple network server */
-    void networkServer();
 
     /** Listens to condition variable */
     void updateFunc();
     void do_something();
 
-    void manageJSONRequest(boost::asio::ip::tcp::socket& socket);
-
-    const boost::property_tree::ptree defaultHandler(std::string x);
-    /*boost::asio::io_service _ioService;*/
-    /*boost::asio::deadline_timer _timer;*/
+    void sendBackData(const ptree& x);
+    const ptree errorNotFound(const ptree& x);
 
     /** These fields are necessary for the update condition to be created */
     boost::mutex _updateMutex;
     boost::unique_lock<boost::mutex> _updateLock;
     boost::condition_variable _updateCond;
     
-    boost::thread _timeFrameThread, _networkThread, _updateThread;
+    boost::thread _timeFrameThread,  _updateThread;
 
 };
 
