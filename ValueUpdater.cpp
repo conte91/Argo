@@ -1,4 +1,4 @@
-#include "valueUpdater.h"
+#include "ValueUpdater.h"
 
 #include <string>
 
@@ -17,7 +17,7 @@
 #include <iostream> 
 #include <sstream>
 
-valueUpdater::valueUpdater(const std::string& value)
+ValueUpdater::ValueUpdater(const std::string& value)
   :
     /** Note: from C++ standard, class members are initialized in the order in which they are declared *into* the class declaration
     */
@@ -25,15 +25,15 @@ valueUpdater::valueUpdater(const std::string& value)
     _updateLock(_updateMutex),
     _updateCond(),
 
-    _timeFrameThread(boost::bind(&valueUpdater::timeFrame, this)),
-    _networkThread(boost::bind(&valueUpdater::networkServer, this)),
-    _updateThread(boost::bind(&valueUpdater::updateFunc, this))
+    _timeFrameThread(boost::bind(&ValueUpdater::timeFrame, this)),
+    _networkThread(boost::bind(&ValueUpdater::networkServer, this)),
+    _updateThread(boost::bind(&ValueUpdater::updateFunc, this))
 {
   myID=value;
 
 }
 
-void valueUpdater::updateFunc(){
+void ValueUpdater::updateFunc(){
 
   std::cout << "Detached new updater thread" << std::endl;
 
@@ -46,11 +46,11 @@ void valueUpdater::updateFunc(){
 
 }
 
-void valueUpdater::do_something(){
+void ValueUpdater::do_something(){
   std::cout << "Hey i'm doing something" << std::endl;
 }
 
-void valueUpdater::timeFrame(){
+void ValueUpdater::timeFrame(){
   boost::asio::io_service ioservice;
   boost::asio::deadline_timer t(ioservice, boost::posix_time::seconds(3));
 
@@ -64,14 +64,14 @@ void valueUpdater::timeFrame(){
 }
 
 
-void valueUpdater::spin(){
+void ValueUpdater::spin(){
   _timeFrameThread.join();
   _networkThread.join();
   _updateThread.join();
 }
 
 
-void valueUpdater::networkServer(){
+void ValueUpdater::networkServer(){
 
   using boost::asio::ip::tcp;
   using boost::property_tree::json_parser::write_json;
@@ -92,7 +92,7 @@ void valueUpdater::networkServer(){
     acceptor.accept(socket);
 
     try{
-      boost::asio::read_until(socket, message, boost::bind(&valueUpdater::jsonReceived, this, _1, _2));
+      boost::asio::read_until(socket, message, boost::bind(&ValueUpdater::jsonReceived, this, _1, _2));
 
       /** Sends answer to the server */
       manageJSONRequest(socket);
@@ -112,7 +112,7 @@ void valueUpdater::networkServer(){
 }
 
 /** Used to check for a complete JSON message */
-std::pair<valueUpdater::BufIterator, bool> valueUpdater::jsonReceived(valueUpdater::BufIterator begin, valueUpdater::BufIterator end){
+std::pair<ValueUpdater::BufIterator, bool> ValueUpdater::jsonReceived(ValueUpdater::BufIterator begin, ValueUpdater::BufIterator end){
 
   using boost::property_tree::ptree;
   using boost::asio::buffers_iterator;
@@ -144,7 +144,7 @@ std::pair<valueUpdater::BufIterator, bool> valueUpdater::jsonReceived(valueUpdat
 
 }
 
-void valueUpdater::manageJSONRequest(boost::asio::ip::tcp::socket& socket){
+void ValueUpdater::manageJSONRequest(boost::asio::ip::tcp::socket& socket){
 
   using boost::property_tree::ptree;
   using boost::property_tree::write_json;
@@ -172,7 +172,7 @@ void valueUpdater::manageJSONRequest(boost::asio::ip::tcp::socket& socket){
       /** Manages the request */
       if(!(handlers.count(v.second.data()))){
         /** There is no function associated to this request */
-        const boost::function<ptree (std::string)>& h=boost::bind(&valueUpdater::defaultHandler, this, _1);
+        const boost::function<ptree (std::string)>& h=boost::bind(&ValueUpdater::defaultHandler, this, _1);
         answers.put_child(std::string("Data.")+v.second.data(), h(v.second.data()));
       }
       else{
@@ -185,7 +185,7 @@ void valueUpdater::manageJSONRequest(boost::asio::ip::tcp::socket& socket){
   return;
 }
 
-const boost::property_tree::ptree valueUpdater::defaultHandler(std::string x){
+const boost::property_tree::ptree ValueUpdater::defaultHandler(std::string x){
 
   using boost::property_tree::ptree;
 

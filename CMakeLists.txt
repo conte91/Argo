@@ -1,7 +1,7 @@
 FIND_PACKAGE( Boost COMPONENTS system thread REQUIRED )
 
 ADD_EXECUTABLE( server
-  server.cpp valueUpdater.cpp
+  server.cpp ValueUpdater.cpp
 )
 
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})

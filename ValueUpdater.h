@@ -9,9 +9,9 @@
 
 #include <boost/property_tree/ptree.hpp>
 
-class valueUpdater{
+class ValueUpdater{
   public:
-    valueUpdater(const std::string& id);
+    ValueUpdater(const std::string& id);
 
     void spin();
     void startUpdate();
@@ -19,7 +19,7 @@ class valueUpdater{
 
   private:
 
-    valueUpdater();
+    ValueUpdater();
 
     std::string myID;
 

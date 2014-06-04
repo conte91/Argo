@@ -1,8 +1,8 @@
 #include <string>
-#include "valueUpdater.h"
+#include "ValueUpdater.h"
 
 int main(){
-  valueUpdater up("test");
+  ValueUpdater up("test");
   up.spin();
   return 0;
 }
