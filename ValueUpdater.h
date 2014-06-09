@@ -33,7 +33,6 @@ class ValueUpdater{
 
     void do_something();
 
-    void sendBackData(const ptree& x);
     const ptree errorNotFound(const ptree& x);
 };
 

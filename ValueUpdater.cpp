@@ -27,8 +27,6 @@ ValueUpdater::ValueUpdater(const std::string& value)
   myID=value;
   _jServer.setDefaultHandler(boost::bind(&ValueUpdater::errorNotFound, this, _1));
 
-  _jServer.setPostHook(boost::bind(&ValueUpdater::sendBackData, this, _1));
-
   /** List of things to be done */
   _tUpdater.toDo().push(boost::bind(&ValueUpdater::do_something, this));
 
@@ -42,10 +40,6 @@ void ValueUpdater::do_something(){
 void ValueUpdater::spin(){
   _jServer.spin();
   _tUpdater.spin();
-}
-
-void ValueUpdater::sendBackData(const ValueUpdater::ptree& x){
-  _jServer.sendTree(x);
 }
 
 const ValueUpdater::ptree ValueUpdater::errorNotFound(const ValueUpdater::ptree& x){

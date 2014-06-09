@@ -10,18 +10,17 @@
 #include <boost/property_tree/ptree.hpp>
 
 class JsonServer{
+
   public:
     typedef boost::property_tree::ptree ptree;
 
   private:
-    typedef boost::asio::buffers_iterator<boost::asio::streambuf::const_buffers_type> BufIterator;
     typedef boost::function<const ptree (const ptree&)> DataHandler;
     typedef boost::function<void (const ptree&)> Hook;
 
   public:
 
-
-    JsonServer(const std::string& id);
+    JsonServer(const std::string& id, int port=4242);
 
     void spin();
 
@@ -32,8 +31,6 @@ class JsonServer{
     void setDefaultHandler(const DataHandler& handler);
 
     void setPostHook(const Hook& handler);
-
-    void sendTree(const JsonServer::ptree& x);
 
   private:
 
@@ -52,16 +49,11 @@ class JsonServer{
     /** Handler that will receive the complete answer and use it as it wants */
     Hook postHook;
 
-    /** Used to check for a complete JSON message */
-    std::pair<BufIterator, bool> jsonReceived(BufIterator begin, BufIterator end);
-
     /** Simple network server */
-    void networkServer();
+    void networkServer(int port);
 
     void manageJSONRequest(boost::asio::ip::tcp::socket& socket);
 
     boost::thread _networkThread;
-
-    boost::asio::ip::tcp::socket* currentSocket;
 
 };
