@@ -1,0 +1,6 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$class_json_server.html#a5a069947bb7027e35232541513c970ae" title="JsonServer::handle" alt="" coords="123,5,266,32"/>
+<area shape="rect" id="node3" href="$big_huge_server_8cpp.html#ad843dfa6b149ae43a0182fd220aa9428" title="logHumidity" alt="" coords="147,56,242,83"/>
+<area shape="rect" id="node4" href="$big_huge_server_8cpp.html#a8cf2a4f754ad6044e035e837297f1df2" title="logSunlight" alt="" coords="149,107,240,133"/>
+<area shape="rect" id="node5" href="$class_json_manager.html#a7f80eb86717ae871369306c63baba9f1" title="JsonManager::writeJson" alt="" coords="107,157,282,184"/>
+</map>

@@ -1,0 +1,183 @@
+\hypertarget{class_json_server}{\section{Json\+Server Class Reference}
+\label{class_json_server}\index{Json\+Server@{Json\+Server}}
+}
+
+
+{\ttfamily \#include $<$Json\+Server.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef boost\+::property\+\_\+tree\+::ptree \hyperlink{class_json_server_ab33e8e19d7224157c203637791e09ea2}{ptree}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_json_server_a612055ec4c99985bf0f763e5f4b6d593}{Json\+Server} (const std\+::string \&id, int port=4242)
+\item 
+void \hyperlink{class_json_server_a1aea749817cbcf5245b232108190ac84}{spin} ()
+\item 
+void \hyperlink{class_json_server_a5a069947bb7027e35232541513c970ae}{handle} (const std\+::string \&, const Data\+Handler \&)
+\item 
+void \hyperlink{class_json_server_a3426c18b348fd43d3f63954701de23b0}{set\+Default\+Handler} (const Data\+Handler \&handler)
+\item 
+void \hyperlink{class_json_server_a325173dfe3a5867445e804f7d415b3b3}{set\+Post\+Hook} (const Hook \&handler)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2014 Simone Baratta -\/ Conte91 $<$at$>$ gmail $<$dot$>$ com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+T\+H\+E S\+O\+F\+T\+W\+A\+R\+E I\+S P\+R\+O\+V\+I\+D\+E\+D \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+U\+T W\+A\+R\+R\+A\+N\+T\+Y O\+F A\+N\+Y K\+I\+N\+D, E\+X\+P\+R\+E\+S\+S O\+R I\+M\+P\+L\+I\+E\+D, I\+N\+C\+L\+U\+D\+I\+N\+G B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O T\+H\+E W\+A\+R\+R\+A\+N\+T\+I\+E\+S O\+F M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+T\+Y, F\+I\+T\+N\+E\+S\+S F\+O\+R A P\+A\+R\+T\+I\+C\+U\+L\+A\+R P\+U\+R\+P\+O\+S\+E A\+N\+D N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+N\+T. I\+N N\+O E\+V\+E\+N\+T S\+H\+A\+L\+L T\+H\+E A\+U\+T\+H\+O\+R\+S O\+R C\+O\+P\+Y\+R\+I\+G\+H\+T H\+O\+L\+D\+E\+R\+S B\+E L\+I\+A\+B\+L\+E F\+O\+R A\+N\+Y C\+L\+A\+I\+M, D\+A\+M\+A\+G\+E\+S O\+R O\+T\+H\+E\+R L\+I\+A\+B\+I\+L\+I\+T\+Y, W\+H\+E\+T\+H\+E\+R I\+N A\+N A\+C\+T\+I\+O\+N O\+F C\+O\+N\+T\+R\+A\+C\+T, T\+O\+R\+T O\+R O\+T\+H\+E\+R\+W\+I\+S\+E, A\+R\+I\+S\+I\+N\+G F\+R\+O\+M, O\+U\+T O\+F O\+R I\+N C\+O\+N\+N\+E\+C\+T\+I\+O\+N W\+I\+T\+H T\+H\+E S\+O\+F\+T\+W\+A\+R\+E O\+R T\+H\+E U\+S\+E O\+R O\+T\+H\+E\+R D\+E\+A\+L\+I\+N\+G\+S I\+N T\+H\+E S\+O\+F\+T\+W\+A\+R\+E. 
+
+Definition at line 23 of file Json\+Server.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_json_server_ab33e8e19d7224157c203637791e09ea2}{\index{Json\+Server@{Json\+Server}!ptree@{ptree}}
+\index{ptree@{ptree}!Json\+Server@{Json\+Server}}
+\subsubsection[{ptree}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::property\+\_\+tree\+::ptree {\bf Json\+Server\+::ptree}}}\label{class_json_server_ab33e8e19d7224157c203637791e09ea2}
+
+
+Definition at line 26 of file Json\+Server.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_json_server_a612055ec4c99985bf0f763e5f4b6d593}{\index{Json\+Server@{Json\+Server}!Json\+Server@{Json\+Server}}
+\index{Json\+Server@{Json\+Server}!Json\+Server@{Json\+Server}}
+\subsubsection[{Json\+Server}]{\setlength{\rightskip}{0pt plus 5cm}Json\+Server\+::\+Json\+Server (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{value, }
+\item[{int}]{port = {\ttfamily 4242}}
+\end{DoxyParamCaption}
+)}}\label{class_json_server_a612055ec4c99985bf0f763e5f4b6d593}
+Copyright (C) 2014 Simone Baratta -\/ Conte91 $<$at$>$ gmail $<$dot$>$ com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+T\+H\+E S\+O\+F\+T\+W\+A\+R\+E I\+S P\+R\+O\+V\+I\+D\+E\+D \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+U\+T W\+A\+R\+R\+A\+N\+T\+Y O\+F A\+N\+Y K\+I\+N\+D, E\+X\+P\+R\+E\+S\+S O\+R I\+M\+P\+L\+I\+E\+D, I\+N\+C\+L\+U\+D\+I\+N\+G B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O T\+H\+E W\+A\+R\+R\+A\+N\+T\+I\+E\+S O\+F M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+T\+Y, F\+I\+T\+N\+E\+S\+S F\+O\+R A P\+A\+R\+T\+I\+C\+U\+L\+A\+R P\+U\+R\+P\+O\+S\+E A\+N\+D N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+N\+T. I\+N N\+O E\+V\+E\+N\+T S\+H\+A\+L\+L T\+H\+E A\+U\+T\+H\+O\+R\+S O\+R C\+O\+P\+Y\+R\+I\+G\+H\+T H\+O\+L\+D\+E\+R\+S B\+E L\+I\+A\+B\+L\+E F\+O\+R A\+N\+Y C\+L\+A\+I\+M, D\+A\+M\+A\+G\+E\+S O\+R O\+T\+H\+E\+R L\+I\+A\+B\+I\+L\+I\+T\+Y, W\+H\+E\+T\+H\+E\+R I\+N A\+N A\+C\+T\+I\+O\+N O\+F C\+O\+N\+T\+R\+A\+C\+T, T\+O\+R\+T O\+R O\+T\+H\+E\+R\+W\+I\+S\+E, A\+R\+I\+S\+I\+N\+G F\+R\+O\+M, O\+U\+T O\+F O\+R I\+N C\+O\+N\+N\+E\+C\+T\+I\+O\+N W\+I\+T\+H T\+H\+E S\+O\+F\+T\+W\+A\+R\+E O\+R T\+H\+E U\+S\+E O\+R O\+T\+H\+E\+R D\+E\+A\+L\+I\+N\+G\+S I\+N T\+H\+E S\+O\+F\+T\+W\+A\+R\+E.\+Note\+: from C++ standard, class members are initialized in the order in which they are declared {\itshape into} the class declaration 
+
+Definition at line 32 of file Json\+Server.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_json_server_a612055ec4c99985bf0f763e5f4b6d593_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_json_server_a612055ec4c99985bf0f763e5f4b6d593_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_json_server_a5a069947bb7027e35232541513c970ae}{\index{Json\+Server@{Json\+Server}!handle@{handle}}
+\index{handle@{handle}!Json\+Server@{Json\+Server}}
+\subsubsection[{handle}]{\setlength{\rightskip}{0pt plus 5cm}void Json\+Server\+::handle (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{node, }
+\item[{const Data\+Handler \&}]{handler}
+\end{DoxyParamCaption}
+)}}\label{class_json_server_a5a069947bb7027e35232541513c970ae}
+Assigns an handler to a J\+S\+O\+N request 
+
+Definition at line 126 of file Json\+Server.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_json_server_a5a069947bb7027e35232541513c970ae_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_json_server_a3426c18b348fd43d3f63954701de23b0}{\index{Json\+Server@{Json\+Server}!set\+Default\+Handler@{set\+Default\+Handler}}
+\index{set\+Default\+Handler@{set\+Default\+Handler}!Json\+Server@{Json\+Server}}
+\subsubsection[{set\+Default\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}void Json\+Server\+::set\+Default\+Handler (
+\begin{DoxyParamCaption}
+\item[{const Data\+Handler \&}]{handler}
+\end{DoxyParamCaption}
+)}}\label{class_json_server_a3426c18b348fd43d3f63954701de23b0}
+Functions that will be run when nothing is available or when the conversion is complete 
+
+Definition at line 130 of file Json\+Server.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_json_server_a3426c18b348fd43d3f63954701de23b0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_json_server_a325173dfe3a5867445e804f7d415b3b3}{\index{Json\+Server@{Json\+Server}!set\+Post\+Hook@{set\+Post\+Hook}}
+\index{set\+Post\+Hook@{set\+Post\+Hook}!Json\+Server@{Json\+Server}}
+\subsubsection[{set\+Post\+Hook}]{\setlength{\rightskip}{0pt plus 5cm}void Json\+Server\+::set\+Post\+Hook (
+\begin{DoxyParamCaption}
+\item[{const Hook \&}]{handler}
+\end{DoxyParamCaption}
+)}}\label{class_json_server_a325173dfe3a5867445e804f7d415b3b3}
+
+
+Definition at line 134 of file Json\+Server.\+cpp.
+
+\hypertarget{class_json_server_a1aea749817cbcf5245b232108190ac84}{\index{Json\+Server@{Json\+Server}!spin@{spin}}
+\index{spin@{spin}!Json\+Server@{Json\+Server}}
+\subsubsection[{spin}]{\setlength{\rightskip}{0pt plus 5cm}void Json\+Server\+::spin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_json_server_a1aea749817cbcf5245b232108190ac84}
+
+
+Definition at line 41 of file Json\+Server.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_json_server_a1aea749817cbcf5245b232108190ac84_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/simo/\+Documenti/\+Poli/\+Io\+T/\+Project/server/\hyperlink{_json_server_8h}{Json\+Server.\+h}\item 
+/home/simo/\+Documenti/\+Poli/\+Io\+T/\+Project/server/\hyperlink{_json_server_8cpp}{Json\+Server.\+cpp}\end{DoxyCompactItemize}

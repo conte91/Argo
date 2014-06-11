@@ -1,0 +1,264 @@
+\hypertarget{class_value_updater}{\section{Value\+Updater Class Reference}
+\label{class_value_updater}\index{Value\+Updater@{Value\+Updater}}
+}
+
+
+{\ttfamily \#include $<$Value\+Updater.\+h$>$}
+
+
+
+Inheritance diagram for Value\+Updater\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_value_updater__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Value\+Updater\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{class_value_updater__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_value_updater_adb31fdab1c81e5e956d45f33420a5d4d}{Value\+Updater} (const std\+::string \&id)
+\item 
+virtual \hyperlink{class_value_updater_ad48a75a4f56eeaa0e8e8ef721606ce28}{$\sim$\+Value\+Updater} ()
+\item 
+void \hyperlink{class_value_updater_a334519af96fcf771be2bfb54bf96274e}{spin} ()
+\item 
+void \hyperlink{class_value_updater_af7cdc4716c12ed9a8ccab24a117517b9}{start\+Update} ()
+\item 
+void \hyperlink{class_value_updater_aa72bf4bf17ce87177105a93b8a4c1ed1}{stop\+Update} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef boost\+::property\+\_\+tree\+::ptree \hyperlink{class_value_updater_a3b22cec365a448f8d7854431ce104d9b}{ptree}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_value_updater_aaed61479253764057c718191ac23ae0c}{Value\+Updater} ()
+\item 
+void \hyperlink{class_value_updater_a9626d825dd178c68ec7645b9cd4e0afc}{do\+\_\+something} ()
+\item 
+const \hyperlink{class_value_updater_a3b22cec365a448f8d7854431ce104d9b}{ptree} \hyperlink{class_value_updater_a601c97ec59b863d4c9ebccfa0309b2c2}{error\+Not\+Found} (const \hyperlink{class_value_updater_a3b22cec365a448f8d7854431ce104d9b}{ptree} \&\hyperlink{jquery_8js_a4c3eadaa5164016d2c340d495fc6e55e}{x})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_value_updater_a5fb457df5b7c1546c77815e7ed3cf051}{my\+I\+D}
+\item 
+\hyperlink{class_json_server}{Json\+Server} \hyperlink{class_value_updater_a0919e0b45f8e3da0174e0db72f3b37fa}{\+\_\+j\+Server}
+\item 
+\hyperlink{class_timer}{Timer} \hyperlink{class_value_updater_a1ee7b4c634b4511dc14b64b6fbdf4294}{\+\_\+t\+Updater}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright (C) 2014 Simone Baratta -\/ Conte91 $<$at$>$ gmail $<$dot$>$ com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+T\+H\+E S\+O\+F\+T\+W\+A\+R\+E I\+S P\+R\+O\+V\+I\+D\+E\+D \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+U\+T W\+A\+R\+R\+A\+N\+T\+Y O\+F A\+N\+Y K\+I\+N\+D, E\+X\+P\+R\+E\+S\+S O\+R I\+M\+P\+L\+I\+E\+D, I\+N\+C\+L\+U\+D\+I\+N\+G B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O T\+H\+E W\+A\+R\+R\+A\+N\+T\+I\+E\+S O\+F M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+T\+Y, F\+I\+T\+N\+E\+S\+S F\+O\+R A P\+A\+R\+T\+I\+C\+U\+L\+A\+R P\+U\+R\+P\+O\+S\+E A\+N\+D N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+N\+T. I\+N N\+O E\+V\+E\+N\+T S\+H\+A\+L\+L T\+H\+E A\+U\+T\+H\+O\+R\+S O\+R C\+O\+P\+Y\+R\+I\+G\+H\+T H\+O\+L\+D\+E\+R\+S B\+E L\+I\+A\+B\+L\+E F\+O\+R A\+N\+Y C\+L\+A\+I\+M, D\+A\+M\+A\+G\+E\+S O\+R O\+T\+H\+E\+R L\+I\+A\+B\+I\+L\+I\+T\+Y, W\+H\+E\+T\+H\+E\+R I\+N A\+N A\+C\+T\+I\+O\+N O\+F C\+O\+N\+T\+R\+A\+C\+T, T\+O\+R\+T O\+R O\+T\+H\+E\+R\+W\+I\+S\+E, A\+R\+I\+S\+I\+N\+G F\+R\+O\+M, O\+U\+T O\+F O\+R I\+N C\+O\+N\+N\+E\+C\+T\+I\+O\+N W\+I\+T\+H T\+H\+E S\+O\+F\+T\+W\+A\+R\+E O\+R T\+H\+E U\+S\+E O\+R O\+T\+H\+E\+R D\+E\+A\+L\+I\+N\+G\+S I\+N T\+H\+E S\+O\+F\+T\+W\+A\+R\+E. 
+
+Definition at line 25 of file Value\+Updater.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_value_updater_a3b22cec365a448f8d7854431ce104d9b}{\index{Value\+Updater@{Value\+Updater}!ptree@{ptree}}
+\index{ptree@{ptree}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{ptree}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::property\+\_\+tree\+::ptree {\bf Value\+Updater\+::ptree}\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_value_updater_a3b22cec365a448f8d7854431ce104d9b}
+
+
+Definition at line 36 of file Value\+Updater.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_value_updater_adb31fdab1c81e5e956d45f33420a5d4d}{\index{Value\+Updater@{Value\+Updater}!Value\+Updater@{Value\+Updater}}
+\index{Value\+Updater@{Value\+Updater}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{Value\+Updater}]{\setlength{\rightskip}{0pt plus 5cm}Value\+Updater\+::\+Value\+Updater (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_value_updater_adb31fdab1c81e5e956d45f33420a5d4d}
+Copyright (C) 2014 Simone Baratta -\/ Conte91 $<$at$>$ gmail $<$dot$>$ com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+T\+H\+E S\+O\+F\+T\+W\+A\+R\+E I\+S P\+R\+O\+V\+I\+D\+E\+D \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+U\+T W\+A\+R\+R\+A\+N\+T\+Y O\+F A\+N\+Y K\+I\+N\+D, E\+X\+P\+R\+E\+S\+S O\+R I\+M\+P\+L\+I\+E\+D, I\+N\+C\+L\+U\+D\+I\+N\+G B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O T\+H\+E W\+A\+R\+R\+A\+N\+T\+I\+E\+S O\+F M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+T\+Y, F\+I\+T\+N\+E\+S\+S F\+O\+R A P\+A\+R\+T\+I\+C\+U\+L\+A\+R P\+U\+R\+P\+O\+S\+E A\+N\+D N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+N\+T. I\+N N\+O E\+V\+E\+N\+T S\+H\+A\+L\+L T\+H\+E A\+U\+T\+H\+O\+R\+S O\+R C\+O\+P\+Y\+R\+I\+G\+H\+T H\+O\+L\+D\+E\+R\+S B\+E L\+I\+A\+B\+L\+E F\+O\+R A\+N\+Y C\+L\+A\+I\+M, D\+A\+M\+A\+G\+E\+S O\+R O\+T\+H\+E\+R L\+I\+A\+B\+I\+L\+I\+T\+Y, W\+H\+E\+T\+H\+E\+R I\+N A\+N A\+C\+T\+I\+O\+N O\+F C\+O\+N\+T\+R\+A\+C\+T, T\+O\+R\+T O\+R O\+T\+H\+E\+R\+W\+I\+S\+E, A\+R\+I\+S\+I\+N\+G F\+R\+O\+M, O\+U\+T O\+F O\+R I\+N C\+O\+N\+N\+E\+C\+T\+I\+O\+N W\+I\+T\+H T\+H\+E S\+O\+F\+T\+W\+A\+R\+E O\+R T\+H\+E U\+S\+E O\+R O\+T\+H\+E\+R D\+E\+A\+L\+I\+N\+G\+S I\+N T\+H\+E S\+O\+F\+T\+W\+A\+R\+E.\+Note\+: from C++ standard, class members are initialized in the order in which they are declared {\itshape into} the class declaration List of things to be done 
+
+Definition at line 31 of file Value\+Updater.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_value_updater_adb31fdab1c81e5e956d45f33420a5d4d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_value_updater_ad48a75a4f56eeaa0e8e8ef721606ce28}{\index{Value\+Updater@{Value\+Updater}!````~Value\+Updater@{$\sim$\+Value\+Updater}}
+\index{````~Value\+Updater@{$\sim$\+Value\+Updater}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{$\sim$\+Value\+Updater}]{\setlength{\rightskip}{0pt plus 5cm}Value\+Updater\+::$\sim$\+Value\+Updater (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_value_updater_ad48a75a4f56eeaa0e8e8ef721606ce28}
+
+
+Definition at line 65 of file Value\+Updater.\+cpp.
+
+\hypertarget{class_value_updater_aaed61479253764057c718191ac23ae0c}{\index{Value\+Updater@{Value\+Updater}!Value\+Updater@{Value\+Updater}}
+\index{Value\+Updater@{Value\+Updater}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{Value\+Updater}]{\setlength{\rightskip}{0pt plus 5cm}Value\+Updater\+::\+Value\+Updater (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_value_updater_aaed61479253764057c718191ac23ae0c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_value_updater_a9626d825dd178c68ec7645b9cd4e0afc}{\index{Value\+Updater@{Value\+Updater}!do\+\_\+something@{do\+\_\+something}}
+\index{do\+\_\+something@{do\+\_\+something}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{do\+\_\+something}]{\setlength{\rightskip}{0pt plus 5cm}void Value\+Updater\+::do\+\_\+something (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_value_updater_a9626d825dd178c68ec7645b9cd4e0afc}
+
+
+Definition at line 46 of file Value\+Updater.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_value_updater_a9626d825dd178c68ec7645b9cd4e0afc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_value_updater_a601c97ec59b863d4c9ebccfa0309b2c2}{\index{Value\+Updater@{Value\+Updater}!error\+Not\+Found@{error\+Not\+Found}}
+\index{error\+Not\+Found@{error\+Not\+Found}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{error\+Not\+Found}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Value\+Updater\+::ptree} Value\+Updater\+::error\+Not\+Found (
+\begin{DoxyParamCaption}
+\item[{const {\bf ptree} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_value_updater_a601c97ec59b863d4c9ebccfa0309b2c2}
+
+
+Definition at line 56 of file Value\+Updater.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_value_updater_a601c97ec59b863d4c9ebccfa0309b2c2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_value_updater_a334519af96fcf771be2bfb54bf96274e}{\index{Value\+Updater@{Value\+Updater}!spin@{spin}}
+\index{spin@{spin}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{spin}]{\setlength{\rightskip}{0pt plus 5cm}void Value\+Updater\+::spin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_value_updater_a334519af96fcf771be2bfb54bf96274e}
+
+
+Definition at line 51 of file Value\+Updater.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{class_value_updater_a334519af96fcf771be2bfb54bf96274e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{class_value_updater_a334519af96fcf771be2bfb54bf96274e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_value_updater_af7cdc4716c12ed9a8ccab24a117517b9}{\index{Value\+Updater@{Value\+Updater}!start\+Update@{start\+Update}}
+\index{start\+Update@{start\+Update}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{start\+Update}]{\setlength{\rightskip}{0pt plus 5cm}void Value\+Updater\+::start\+Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_value_updater_af7cdc4716c12ed9a8ccab24a117517b9}
+\hypertarget{class_value_updater_aa72bf4bf17ce87177105a93b8a4c1ed1}{\index{Value\+Updater@{Value\+Updater}!stop\+Update@{stop\+Update}}
+\index{stop\+Update@{stop\+Update}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{stop\+Update}]{\setlength{\rightskip}{0pt plus 5cm}void Value\+Updater\+::stop\+Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_value_updater_aa72bf4bf17ce87177105a93b8a4c1ed1}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_value_updater_a0919e0b45f8e3da0174e0db72f3b37fa}{\index{Value\+Updater@{Value\+Updater}!\+\_\+j\+Server@{\+\_\+j\+Server}}
+\index{\+\_\+j\+Server@{\+\_\+j\+Server}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{\+\_\+j\+Server}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Json\+Server} Value\+Updater\+::\+\_\+j\+Server\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_value_updater_a0919e0b45f8e3da0174e0db72f3b37fa}
+
+
+Definition at line 42 of file Value\+Updater.\+h.
+
+\hypertarget{class_value_updater_a1ee7b4c634b4511dc14b64b6fbdf4294}{\index{Value\+Updater@{Value\+Updater}!\+\_\+t\+Updater@{\+\_\+t\+Updater}}
+\index{\+\_\+t\+Updater@{\+\_\+t\+Updater}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{\+\_\+t\+Updater}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Timer} Value\+Updater\+::\+\_\+t\+Updater\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_value_updater_a1ee7b4c634b4511dc14b64b6fbdf4294}
+
+
+Definition at line 43 of file Value\+Updater.\+h.
+
+\hypertarget{class_value_updater_a5fb457df5b7c1546c77815e7ed3cf051}{\index{Value\+Updater@{Value\+Updater}!my\+I\+D@{my\+I\+D}}
+\index{my\+I\+D@{my\+I\+D}!Value\+Updater@{Value\+Updater}}
+\subsubsection[{my\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Value\+Updater\+::my\+I\+D\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_value_updater_a5fb457df5b7c1546c77815e7ed3cf051}
+
+
+Definition at line 40 of file Value\+Updater.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/simo/\+Documenti/\+Poli/\+Io\+T/\+Project/server/\hyperlink{_value_updater_8h}{Value\+Updater.\+h}\item 
+/home/simo/\+Documenti/\+Poli/\+Io\+T/\+Project/server/\hyperlink{_value_updater_8cpp}{Value\+Updater.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$class_value_updater.html#a334519af96fcf771be2bfb54bf96274e" title="ValueUpdater::spin" alt="" coords="107,31,247,57"/>
+<area shape="rect" id="node3" href="$class_json_server.html#a1aea749817cbcf5245b232108190ac84" title="JsonServer::spin" alt="" coords="297,5,423,32"/>
+<area shape="rect" id="node4" href="$class_timer.html#a7192654fa97ebcd5146223e3056b13b4" title="Timer::spin" alt="" coords="315,56,405,83"/>
+</map>

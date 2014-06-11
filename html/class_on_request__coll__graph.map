@@ -1,0 +1,5 @@
+<map id="OnRequest" name="OnRequest">
+<area shape="rect" id="node2" href="$class_value_updater.html" title="ValueUpdater" alt="" coords="49,96,156,123"/>
+<area shape="rect" id="node3" href="$class_json_server.html" title="JsonServer" alt="" coords="5,5,99,32"/>
+<area shape="rect" id="node4" href="$class_timer.html" title="Timer" alt="" coords="124,5,181,32"/>
+</map>
