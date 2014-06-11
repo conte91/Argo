@@ -3,6 +3,11 @@
 }
 
 
+Class converting property trees to json and viceversa.  
+
+
+
+
 {\ttfamily \#include $<$Json\+Manager.\+h$>$}
 
 \subsection*{Public Types}
@@ -11,7 +16,7 @@
 typedef \\*
 boost\+::asio\+::buffers\+\_\+iterator\\*
 $<$ boost\+::asio\+::streambuf\+::const\+\_\+buffers\+\_\+type $>$ \hyperlink{class_json_manager_a8f05d70930bca17dbe59e4a208398816}{Buf\+Iterator}
-\item 
+\begin{DoxyCompactList}\small\item\em Iterator used by read\+Json to. \end{DoxyCompactList}\item 
 typedef boost\+::property\+\_\+tree\+::ptree \hyperlink{class_json_manager_a76d597238ac2bb690fe24acce5a3b78b}{ptree}
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
@@ -29,15 +34,17 @@ virtual \hyperlink{class_json_manager_a4d64ef1d012b8cd3af58e061b5643335}{$\sim$\
 
 
 \subsection{Detailed Description}
+Class converting property trees to json and viceversa. 
+
 Copyright (C) 2014 Simone Baratta -\/ Conte91 $<$at$>$ gmail $<$dot$>$ com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-T\+H\+E S\+O\+F\+T\+W\+A\+R\+E I\+S P\+R\+O\+V\+I\+D\+E\+D \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+U\+T W\+A\+R\+R\+A\+N\+T\+Y O\+F A\+N\+Y K\+I\+N\+D, E\+X\+P\+R\+E\+S\+S O\+R I\+M\+P\+L\+I\+E\+D, I\+N\+C\+L\+U\+D\+I\+N\+G B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O T\+H\+E W\+A\+R\+R\+A\+N\+T\+I\+E\+S O\+F M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+T\+Y, F\+I\+T\+N\+E\+S\+S F\+O\+R A P\+A\+R\+T\+I\+C\+U\+L\+A\+R P\+U\+R\+P\+O\+S\+E A\+N\+D N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+N\+T. I\+N N\+O E\+V\+E\+N\+T S\+H\+A\+L\+L T\+H\+E A\+U\+T\+H\+O\+R\+S O\+R C\+O\+P\+Y\+R\+I\+G\+H\+T H\+O\+L\+D\+E\+R\+S B\+E L\+I\+A\+B\+L\+E F\+O\+R A\+N\+Y C\+L\+A\+I\+M, D\+A\+M\+A\+G\+E\+S O\+R O\+T\+H\+E\+R L\+I\+A\+B\+I\+L\+I\+T\+Y, W\+H\+E\+T\+H\+E\+R I\+N A\+N A\+C\+T\+I\+O\+N O\+F C\+O\+N\+T\+R\+A\+C\+T, T\+O\+R\+T O\+R O\+T\+H\+E\+R\+W\+I\+S\+E, A\+R\+I\+S\+I\+N\+G F\+R\+O\+M, O\+U\+T O\+F O\+R I\+N C\+O\+N\+N\+E\+C\+T\+I\+O\+N W\+I\+T\+H T\+H\+E S\+O\+F\+T\+W\+A\+R\+E O\+R T\+H\+E U\+S\+E O\+R O\+T\+H\+E\+R D\+E\+A\+L\+I\+N\+G\+S I\+N T\+H\+E S\+O\+F\+T\+W\+A\+R\+E. 
+T\+H\+E S\+O\+F\+T\+W\+A\+R\+E I\+S P\+R\+O\+V\+I\+D\+E\+D \char`\"{}\+A\+S I\+S\char`\"{}, W\+I\+T\+H\+O\+U\+T W\+A\+R\+R\+A\+N\+T\+Y O\+F A\+N\+Y K\+I\+N\+D, E\+X\+P\+R\+E\+S\+S O\+R I\+M\+P\+L\+I\+E\+D, I\+N\+C\+L\+U\+D\+I\+N\+G B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O T\+H\+E W\+A\+R\+R\+A\+N\+T\+I\+E\+S O\+F M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+T\+Y, F\+I\+T\+N\+E\+S\+S F\+O\+R A P\+A\+R\+T\+I\+C\+U\+L\+A\+R P\+U\+R\+P\+O\+S\+E A\+N\+D N\+O\+N\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+N\+T. I\+N N\+O E\+V\+E\+N\+T S\+H\+A\+L\+L T\+H\+E A\+U\+T\+H\+O\+R\+S O\+R C\+O\+P\+Y\+R\+I\+G\+H\+T H\+O\+L\+D\+E\+R\+S B\+E L\+I\+A\+B\+L\+E F\+O\+R A\+N\+Y C\+L\+A\+I\+M, D\+A\+M\+A\+G\+E\+S O\+R O\+T\+H\+E\+R L\+I\+A\+B\+I\+L\+I\+T\+Y, W\+H\+E\+T\+H\+E\+R I\+N A\+N A\+C\+T\+I\+O\+N O\+F C\+O\+N\+T\+R\+A\+C\+T, T\+O\+R\+T O\+R O\+T\+H\+E\+R\+W\+I\+S\+E, A\+R\+I\+S\+I\+N\+G F\+R\+O\+M, O\+U\+T O\+F O\+R I\+N C\+O\+N\+N\+E\+C\+T\+I\+O\+N W\+I\+T\+H T\+H\+E S\+O\+F\+T\+W\+A\+R\+E O\+R T\+H\+E U\+S\+E O\+R O\+T\+H\+E\+R D\+E\+A\+L\+I\+N\+G\+S I\+N T\+H\+E S\+O\+F\+T\+W\+A\+R\+E.\+This class is not instantiable (it has a pure-\/virtual destructor), and only provides static methods to read and write to a boost compatible \href{http://www.boost.org/doc/libs/1_55_0/doc/html/boost_asio/reference/SyncReadStream.html}{\tt Sync\+Stream}. 
 
-Definition at line 20 of file Json\+Manager.\+h.
+Definition at line 24 of file Json\+Manager.\+h.
 
 
 
@@ -47,14 +54,18 @@ Definition at line 20 of file Json\+Manager.\+h.
 \subsubsection[{Buf\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::asio\+::buffers\+\_\+iterator$<$boost\+::asio\+::streambuf\+::const\+\_\+buffers\+\_\+type$>$ {\bf Json\+Manager\+::\+Buf\+Iterator}}}\label{class_json_manager_a8f05d70930bca17dbe59e4a208398816}
 
 
-Definition at line 23 of file Json\+Manager.\+h.
+Iterator used by read\+Json to. 
+
+
+
+Definition at line 28 of file Json\+Manager.\+h.
 
 \hypertarget{class_json_manager_a76d597238ac2bb690fe24acce5a3b78b}{\index{Json\+Manager@{Json\+Manager}!ptree@{ptree}}
 \index{ptree@{ptree}!Json\+Manager@{Json\+Manager}}
 \subsubsection[{ptree}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::property\+\_\+tree\+::ptree {\bf Json\+Manager\+::ptree}}}\label{class_json_manager_a76d597238ac2bb690fe24acce5a3b78b}
 
 
-Definition at line 24 of file Json\+Manager.\+h.
+Definition at line 29 of file Json\+Manager.\+h.
 
 
 
@@ -79,7 +90,7 @@ Definition at line 24 of file Json\+Manager.\+h.
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_json_manager_a122b69a25e15dd7ab5bdc9ee84ca808b}
 
 
-Definition at line 43 of file Json\+Manager.\+h.
+Definition at line 48 of file Json\+Manager.\+h.
 
 \hypertarget{class_json_manager_a7f80eb86717ae871369306c63baba9f1}{\index{Json\+Manager@{Json\+Manager}!write\+Json@{write\+Json}}
 \index{write\+Json@{write\+Json}!Json\+Manager@{Json\+Manager}}
@@ -91,12 +102,11 @@ Definition at line 43 of file Json\+Manager.\+h.
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_json_manager_a7f80eb86717ae871369306c63baba9f1}
 3rd parameter is for compact output 
 
-Definition at line 49 of file Json\+Manager.\+h.
+Definition at line 54 of file Json\+Manager.\+h.
 
 
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

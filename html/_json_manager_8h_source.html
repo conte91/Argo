@@ -96,52 +96,52 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;boost/asio/streambuf.hpp&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/json_parser.hpp&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_json_manager.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_json_manager.html">JsonManager</a>{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_json_manager.html#a8f05d70930bca17dbe59e4a208398816">   23</a></span>&#160;    <span class="keyword">typedef</span> boost::asio::buffers_iterator&lt;boost::asio::streambuf::const_buffers_type&gt; <a class="code" href="class_json_manager.html#a8f05d70930bca17dbe59e4a208398816">BufIterator</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">   24</a></span>&#160;    <span class="keyword">typedef</span> boost::property_tree::ptree <a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">ptree</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_json_manager.html#a4d64ef1d012b8cd3af58e061b5643335">~JsonManager</a>()=0;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Reader&gt;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_json_manager.html#a122b69a25e15dd7ab5bdc9ee84ca808b">readJson</a>(Reader&amp; socket, <a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">JsonManager::ptree</a>&amp; result);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Writer&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_json_manager.html#a7f80eb86717ae871369306c63baba9f1">writeJson</a>(Writer&amp; socket, <span class="keyword">const</span> <a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">JsonManager::ptree</a>&amp; result);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_json_manager.html">JsonManager</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      std::pair&lt;BufIterator, bool&gt; jsonReceived(<a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">ptree</a>&amp; requests, <a class="code" href="class_json_manager.html#a8f05d70930bca17dbe59e4a208398816">BufIterator</a> begin, <a class="code" href="class_json_manager.html#a8f05d70930bca17dbe59e4a208398816">BufIterator</a> end);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Reader&gt;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_json_manager.html#a122b69a25e15dd7ab5bdc9ee84ca808b">   43</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_json_manager.html#a122b69a25e15dd7ab5bdc9ee84ca808b">JsonManager::readJson</a>(Reader&amp; socket, <a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">JsonManager::ptree</a>&amp; result){</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  boost::asio::streambuf message;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  boost::asio::read_until(socket, message, boost::bind(&amp;JsonManager::jsonReceived, boost::ref(result), _1, _2));</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Writer&gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_json_manager.html#a7f80eb86717ae871369306c63baba9f1">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_json_manager.html#a7f80eb86717ae871369306c63baba9f1">JsonManager::writeJson</a>(Writer&amp; socket, <span class="keyword">const</span> <a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">JsonManager::ptree</a>&amp; result){</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  std::ostringstream ansStream;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  write_json(ansStream, result, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="comment">/*Debug:</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">   * write_json(std::cout, results);*/</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  ansStream.flush();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  boost::asio::write(socket, boost::asio::buffer(ansStream.str()));</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="ttc" id="class_json_manager_html_a8f05d70930bca17dbe59e4a208398816"><div class="ttname"><a href="class_json_manager.html#a8f05d70930bca17dbe59e4a208398816">JsonManager::BufIterator</a></div><div class="ttdeci">boost::asio::buffers_iterator&lt; boost::asio::streambuf::const_buffers_type &gt; BufIterator</div><div class="ttdef"><b>Definition:</b> <a href="_json_manager_8h_source.html#l00023">JsonManager.h:23</a></div></div>
-<div class="ttc" id="class_json_manager_html_a7f80eb86717ae871369306c63baba9f1"><div class="ttname"><a href="class_json_manager.html#a7f80eb86717ae871369306c63baba9f1">JsonManager::writeJson</a></div><div class="ttdeci">static void writeJson(Writer &amp;socket, const JsonManager::ptree &amp;result)</div><div class="ttdef"><b>Definition:</b> <a href="_json_manager_8h_source.html#l00049">JsonManager.h:49</a></div></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_json_manager.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_json_manager.html">JsonManager</a>{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_json_manager.html#a8f05d70930bca17dbe59e4a208398816">   28</a></span>&#160;    <span class="keyword">typedef</span> boost::asio::buffers_iterator&lt;boost::asio::streambuf::const_buffers_type&gt; <a class="code" href="class_json_manager.html#a8f05d70930bca17dbe59e4a208398816">BufIterator</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">   29</a></span>&#160;    <span class="keyword">typedef</span> boost::property_tree::ptree <a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">ptree</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_json_manager.html#a4d64ef1d012b8cd3af58e061b5643335">~JsonManager</a>()=0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Reader&gt;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_json_manager.html#a122b69a25e15dd7ab5bdc9ee84ca808b">readJson</a>(Reader&amp; socket, <a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">JsonManager::ptree</a>&amp; result);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Writer&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_json_manager.html#a7f80eb86717ae871369306c63baba9f1">writeJson</a>(Writer&amp; socket, <span class="keyword">const</span> <a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">JsonManager::ptree</a>&amp; result);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_json_manager.html">JsonManager</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      std::pair&lt;BufIterator, bool&gt; jsonReceived(<a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">ptree</a>&amp; requests, <a class="code" href="class_json_manager.html#a8f05d70930bca17dbe59e4a208398816">BufIterator</a> begin, <a class="code" href="class_json_manager.html#a8f05d70930bca17dbe59e4a208398816">BufIterator</a> end);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Reader&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_json_manager.html#a122b69a25e15dd7ab5bdc9ee84ca808b">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_json_manager.html#a122b69a25e15dd7ab5bdc9ee84ca808b">JsonManager::readJson</a>(Reader&amp; socket, <a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">JsonManager::ptree</a>&amp; result){</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  boost::asio::streambuf message;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  boost::asio::read_until(socket, message, boost::bind(&amp;JsonManager::jsonReceived, boost::ref(result), _1, _2));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Writer&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_json_manager.html#a7f80eb86717ae871369306c63baba9f1">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_json_manager.html#a7f80eb86717ae871369306c63baba9f1">JsonManager::writeJson</a>(Writer&amp; socket, <span class="keyword">const</span> <a class="code" href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">JsonManager::ptree</a>&amp; result){</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  std::ostringstream ansStream;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  write_json(ansStream, result, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="comment">/*Debug:</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">   * write_json(std::cout, results);*/</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  ansStream.flush();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  boost::asio::write(socket, boost::asio::buffer(ansStream.str()));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="ttc" id="class_json_manager_html_a8f05d70930bca17dbe59e4a208398816"><div class="ttname"><a href="class_json_manager.html#a8f05d70930bca17dbe59e4a208398816">JsonManager::BufIterator</a></div><div class="ttdeci">boost::asio::buffers_iterator&lt; boost::asio::streambuf::const_buffers_type &gt; BufIterator</div><div class="ttdoc">Iterator used by readJson to. </div><div class="ttdef"><b>Definition:</b> <a href="_json_manager_8h_source.html#l00028">JsonManager.h:28</a></div></div>
+<div class="ttc" id="class_json_manager_html_a7f80eb86717ae871369306c63baba9f1"><div class="ttname"><a href="class_json_manager.html#a7f80eb86717ae871369306c63baba9f1">JsonManager::writeJson</a></div><div class="ttdeci">static void writeJson(Writer &amp;socket, const JsonManager::ptree &amp;result)</div><div class="ttdef"><b>Definition:</b> <a href="_json_manager_8h_source.html#l00054">JsonManager.h:54</a></div></div>
 <div class="ttc" id="class_json_manager_html_a4d64ef1d012b8cd3af58e061b5643335"><div class="ttname"><a href="class_json_manager.html#a4d64ef1d012b8cd3af58e061b5643335">JsonManager::~JsonManager</a></div><div class="ttdeci">virtual ~JsonManager()=0</div></div>
-<div class="ttc" id="class_json_manager_html_a76d597238ac2bb690fe24acce5a3b78b"><div class="ttname"><a href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">JsonManager::ptree</a></div><div class="ttdeci">boost::property_tree::ptree ptree</div><div class="ttdef"><b>Definition:</b> <a href="_json_manager_8h_source.html#l00024">JsonManager.h:24</a></div></div>
-<div class="ttc" id="class_json_manager_html"><div class="ttname"><a href="class_json_manager.html">JsonManager</a></div><div class="ttdef"><b>Definition:</b> <a href="_json_manager_8h_source.html#l00020">JsonManager.h:20</a></div></div>
-<div class="ttc" id="class_json_manager_html_a122b69a25e15dd7ab5bdc9ee84ca808b"><div class="ttname"><a href="class_json_manager.html#a122b69a25e15dd7ab5bdc9ee84ca808b">JsonManager::readJson</a></div><div class="ttdeci">static void readJson(Reader &amp;socket, JsonManager::ptree &amp;result)</div><div class="ttdef"><b>Definition:</b> <a href="_json_manager_8h_source.html#l00043">JsonManager.h:43</a></div></div>
+<div class="ttc" id="class_json_manager_html_a76d597238ac2bb690fe24acce5a3b78b"><div class="ttname"><a href="class_json_manager.html#a76d597238ac2bb690fe24acce5a3b78b">JsonManager::ptree</a></div><div class="ttdeci">boost::property_tree::ptree ptree</div><div class="ttdef"><b>Definition:</b> <a href="_json_manager_8h_source.html#l00029">JsonManager.h:29</a></div></div>
+<div class="ttc" id="class_json_manager_html"><div class="ttname"><a href="class_json_manager.html">JsonManager</a></div><div class="ttdoc">Class converting property trees to json and viceversa. </div><div class="ttdef"><b>Definition:</b> <a href="_json_manager_8h_source.html#l00024">JsonManager.h:24</a></div></div>
+<div class="ttc" id="class_json_manager_html_a122b69a25e15dd7ab5bdc9ee84ca808b"><div class="ttname"><a href="class_json_manager.html#a122b69a25e15dd7ab5bdc9ee84ca808b">JsonManager::readJson</a></div><div class="ttdeci">static void readJson(Reader &amp;socket, JsonManager::ptree &amp;result)</div><div class="ttdef"><b>Definition:</b> <a href="_json_manager_8h_source.html#l00048">JsonManager.h:48</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 11 2014 13:30:23 for Argo by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 11 2014 15:27:37 for Argo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
